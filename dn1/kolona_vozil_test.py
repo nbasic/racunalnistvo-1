@@ -46,6 +46,30 @@ class KolonaVozilTest(unittest.TestCase):
         with self.assertRaisesRegexp(ValueError, 'kolona je prazna'):
             kv.izkrcaj()
 
+    def test_dovolj_prostora(self):
+        kv = KolonaVozil(1000)
+
+        vozilo1 = Vozilo('NM DK-34J', 425)
+        self.assertTrue(kv.dovolj_prostora(vozilo1))
+        kv.vkrcaj(vozilo1)
+
+        vozilo2 = Vozilo('LJ N6-03K', 445)
+        self.assertTrue(kv.dovolj_prostora(vozilo2))
+        kv.vkrcaj(vozilo2)
+
+        vozilo3 = Vozilo('KP JB-P20', 385)
+        self.assertFalse(kv.dovolj_prostora(vozilo3))
+
+    def test_inspekcija(self):
+        kv = KolonaVozil(1500)
+        self.assertEqual(kv.inspekcija(), [])
+
+        kv.vkrcaj(Vozilo('NM DK-34J', 425))
+        self.assertEqual(kv.inspekcija(), ['NM DK-34J'])
+
+        kv.vkrcaj(Vozilo('LJ N6-03K', 445))
+        kv.vkrcaj(Vozilo('KP JB-P20', 385))
+        self.assertEqual(kv.inspekcija(), ['NM DK-34J', 'LJ N6-03K', 'KP JB-P20'])
 
 
 if __name__ == '__main__':

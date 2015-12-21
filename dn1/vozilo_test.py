@@ -1,4 +1,4 @@
-__author__ = 'nino'
+__author__ = 'Nino Bašić <nino.basic@fmf.uni-lj.si>'
 
 import unittest
 from jadrolinija import Vozilo
@@ -6,7 +6,7 @@ from jadrolinija import Vozilo
 
 class VoziloTest(unittest.TestCase):
 
-    def test_something(self):
+    def test_init(self):
         v = Vozilo('NM DK-34J', 425)
         self.assertEqual(v.tablica, 'NM DK-34J')
         self.assertEqual(v.dolzina, 425)

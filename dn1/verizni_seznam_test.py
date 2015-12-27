@@ -109,7 +109,7 @@ class VerizniSeznamPlusTest(unittest.TestCase):
 
     def test_podatek_na_zacetku_2(self):
         s = VerizniSeznamPlus()
-        with self.assertRaisesRegexp(IndexError, 'verižni seznam je prazen'):
+        with self.assertRaisesRegex(IndexError, 'verižni seznam je prazen'):
             s.podatek_na_zacetku()
 
     def test_podatek_na_koncu(self):
@@ -125,7 +125,7 @@ class VerizniSeznamPlusTest(unittest.TestCase):
 
     def test_podatek_na_koncu_2(self):
         s = VerizniSeznamPlus()
-        with self.assertRaisesRegexp(IndexError, 'verižni seznam je prazen'):
+        with self.assertRaisesRegex(IndexError, 'verižni seznam je prazen'):
             s.podatek_na_koncu()
 
     def test_je_prazen(self):

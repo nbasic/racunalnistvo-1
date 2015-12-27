@@ -23,7 +23,7 @@ class KolonaVozilTest(unittest.TestCase):
         self.assertEqual(kv.zasedenost, 425 + 10 + 445)
 
         vozilo3 = Vozilo('KP JB-P20', 385)
-        with self.assertRaisesRegexp(ValueError, 'ni dovolj prostora'):
+        with self.assertRaisesRegex(ValueError, 'ni dovolj prostora'):
             kv.vkrcaj(vozilo3)
 
     def test_izkrcaj(self):
@@ -37,13 +37,13 @@ class KolonaVozilTest(unittest.TestCase):
         self.assertIs(kv.izkrcaj(), vozilo1)
         self.assertEqual(kv.zasedenost, 425 + 10 + 445)
 
-        with self.assertRaisesRegexp(ValueError, 'ni dovolj prostora'):
+        with self.assertRaisesRegex(ValueError, 'ni dovolj prostora'):
             kv.vkrcaj(vozilo1)
 
         self.assertIs(kv.izkrcaj(), vozilo2)
         self.assertEqual(kv.zasedenost, 0)
 
-        with self.assertRaisesRegexp(ValueError, 'kolona je prazna'):
+        with self.assertRaisesRegex(ValueError, 'kolona je prazna'):
             kv.izkrcaj()
 
     def test_dovolj_prostora(self):

@@ -22,7 +22,7 @@ class TrajektTest(unittest.TestCase):
             Vozilo('KP JB-P20', 385),
             Vozilo('MB E8-Y2K', 490),
         ]
-        with self.assertRaisesRegexp(ValueError, 'vhodna loputa je zaprta'):
+        with self.assertRaisesRegex(ValueError, 'vhodna loputa je zaprta'):
             t.vkrcaj(vozila[0])
 
         t.stanje = 1  # "Na roke" popravimo stanje.
@@ -42,7 +42,7 @@ class TrajektTest(unittest.TestCase):
         ]
         for v in vozila:
             t.vkrcaj(v)
-        with self.assertRaisesRegexp(ValueError, 'ni dovolj prostora'):
+        with self.assertRaisesRegex(ValueError, 'ni dovolj prostora'):
             t.vkrcaj(Vozilo('MB E8-Y2K', 490))
 
     def test_izkrcaj(self):
@@ -57,7 +57,7 @@ class TrajektTest(unittest.TestCase):
         for v in vozila:
             t.vkrcaj(v)
 
-        with self.assertRaisesRegexp(ValueError, 'izhodna loputa je zaprta'):
+        with self.assertRaisesRegex(ValueError, 'izhodna loputa je zaprta'):
             t.izkrcaj()
 
     def test_izkrcaj_2(self):
@@ -123,7 +123,7 @@ class TrajektTest(unittest.TestCase):
         for v in vozila:
             t.vkrcaj(v)
 
-        with self.assertRaisesRegexp(ValueError, 'izhodna loputa je zaprta'):
+        with self.assertRaisesRegex(ValueError, 'izhodna loputa je zaprta'):
             t.izkrcaj_vse()
 
         t.stanje = -1  # "Na roke" popravimo stanje.
